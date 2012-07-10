@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head> 
+	 
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<title>My Page</title>
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" />
+	<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+	<script type="text/javascript"src="js/site.js"></script>
+	<script type="text/javascript"src="js/json.js"></script>
+	<script src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
+</head> 
+	
+<body id="index" class="home">
+	
+<!-- begin home Page -->
+<div data-role="page" id="songForm" data-add-back-btn="true">
+	<header data-role="header"><h1>Catalog Your Music</h1>
+	
+	<!-- Begin Native Select Menu -->
+	<div id="sitewrap">
+	<nav data-role="navbar">
+		<ul id="nav">
+			<li><a href="#">Clear Stored Data</a></li>
+			<li><a href="#">Display Data</a></li>
+			<li><a href="#">Add New Song</a></li>
+		</ul>
+	</nav>
+	</div>
+		<!-- End Native Select Menu -->	
+		
+		
+				
+	</header>	
+	<div class="content" data-role="content">
+		<h3>Add A Song</h3>
+		<div data-role="fieldcontain">
+			<label for="select-song-type">Select Song Type:</label>
+			<select id="select-song-type" name="select-song-type">
+				<option value="party">Party</option>
+				<option value="relaxed">Ralaxed</option>
+				<option value="fun">Fun</option>
+				<option value="other">Other</option>
+			</select>
+		</div>
+	</div>
+			<!-- End Native Select Menu -->
+			
+			
+			<!-- Begin Input Fields -->
+	<div class="content" data-role="content">
+		<ul>
+		<h3>Song Info:</h3>
+		<label for="Name-of-Song">Name of Song:</label>
+		<input type="text" name="Name-of-Song" id="Name-of-Song" />
+		
+		
+		<label for="Album">Album:</label>
+		<input type="text" name="Album" id="Album" />
+			
+					
+		<label for="Artist">Artist:</label>
+		<input type="text" name="Artist" id="Artist" />
+		
+		
+		<label for="Music-Down-Load-Website">Music Down Load Website:</label>
+		<input type="text" name="Music-Down-Load-Website" id="Music-Down-Load-Website" />
+		</form>
+		</ul>
+	</div>
+			<!-- End Input Fields -->
+			
+			<!-- Begin Radio Buttons -->
+		<div class="content" data-role="content">	
+			<! --form id="myform" action="formprocessor.php" method="post" -->
+				<div data-role="fieldcontain">
+					<fieldset data-role="controlgroup">
+						<legend>Favorites:</legend>			
+						<input type="checkbox" name="checkbox-add-to-favorites" id="checkbox-add-to-favorites">
+						<label for="checkbox-add-to-favorites">Add-to-Favorites</label>								
+					<fieldset data-role="controlgroup">		
+						<input type="checkbox" name="checkbox-don't-add-to-favorites" id="checkbox-don't-add-to-favorites">
+						<label for="checkbox-don't-add-to-favorites">Don't Add-to-Favorites</label>						
+					</fieldset>
+				</div>
+			<!--/form -->
+			<!-- End Radio Buttons -->
+				
+				<!-- Begin Checkbox Button -->
+			<div data-role="fieldcontain">
+				<fieldset data-role="controlgroup" data-type="horizontal">	
+					<legend>Save as Favorite?:</legend>
+					<input type="radio" name="radio-save-as-favorites" id="radio-save-as-favorites">
+					<label for="radio-save-as-favorites">Save as Favorites</label>	
+				</fieldset>
+				<!-- End Checkbok Button -->
+				
+				<!-- Begin Slider Code -->
+				<div class="content" data-role="content">
+					<form id="myform" action="formprocessor.php" method="post">
+					<div data-role="fieldcontain">
+					<legend>Song Rating:</legend>
+						<input type="range" id="slider" name="slider" min="0" max="10">
+				</div>
+					</form>
+					</div>		
+				<!-- End Slider Code -->
+				
+				
+				<!-- Begin Date Code -->
+				
+				<!-- End Date Code -->
+				
+				
+				<!-- Begin Textbox Code -->
+				
+				<div class="content" data-role="content">
+					<form id="myform" action="formprocessor.php" method="post">
+						<label for="notes">Notes:</label>
+						<input type="text" name="notes" id="notes" />
+					</form>
+				</div>	
+				<!-- End Textbox Code -->
+			
+			
+			<!-- Begin Footer Buttons -->
+			<div data-role="footer" data-position="fixed">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#save-song" data-icon="plus">Save Song</a></li>
+						<li><a href="#reset-form" data-icon="star">Reset Form</a></li>
+						<li><a href="https://github.com/Irv5/ASDI.git">GitHub Repo</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://irv5.github.com/ASDI">GitHub Site</a></li>
+
+					</ul>
+				</div>
+			</div>
+
+			<!-- End Footer Buttons -->
+			</div>
+		</form>
+	</div>
+</section>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" />
+<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+<script type="text/javascript"src="js/site.js"></script>
+
+</body>
+</html>
+<!-- End first Page -->
+			
