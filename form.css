@@ -1,0 +1,59 @@
+@font-face {
+    font-family: 'Times';
+    
+
+}
+
+
+
+h1{
+    font-family: Times;
+    color: black;
+    margin: 0px 0px 5px 0px;
+    padding: 15px 5px 10px 20px;
+    width: 385px;
+    background: silver;
+}
+
+label{
+    margin: 2px 0px 0px 0px;
+    padding: 2px 5px 2px 0px;
+    font-family: Times;
+    display: block;
+}
+input{
+    border: groove;
+}
+textarea{
+    border: groove;
+}
+
+
+body{
+    font-family: Times;
+    background: silver;
+    /*border: 3px solid #995522;*/
+}
+
+
+#button{
+    margin: 0px 0px 0px 10px;
+}
+
+#search{
+    border: groove;
+}
+
+#submita{
+    height: 30px;
+    width: 90px;
+    font-family: Times;
+    font-size: 14px;
+    color: blue;
+    padding: 2px 2px 2px 2px;
+    margin: 0px 0px 0px 20px;
+    
+    background: silver;
+
+    
+}

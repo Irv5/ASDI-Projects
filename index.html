@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 
@@ -72,3 +73,65 @@ $ git checkout gh-pages
 
   </body>
 </html>
+=======
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta description="Comic book inventory list."/>
+        <meta name="author" content="SitePoint"/>
+        <meta keywords="Music, Catalog"/>
+        <meta name="robots" content="index, follow"/>
+        <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0"/>
+        <meta name="HandheldFriendly" content="True"/>
+        <meta name="MobileOptimized" content="320"/>
+        <!-- <link href="form.css" rel="stylesheet"/ -->
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        <title>Music Catalog</title>
+    </head>
+    <body style="background-color:silver">
+        
+        <div data-role=page id="page1">
+        <h1>Music Catalog Inventory</h1>
+        <form method= "Link" action="addItem.html" method="post" id="contactForm">
+            <fieldset id="reg">
+                <legend id="which">Add a Song!</legend>
+                <ul id="dataul">
+                    <li><label id="words" for="addSong">Catalog Your Music!</label></li>
+                    <button type="button" id="additem" name="Save Song" value="Save Song" class="css3button">Add Song</button>
+                    <button type="button" id="jsonbutton" name="jsonbutton" value="getjson" class="css3button">JSON</button>
+                    <button type="button" id="xmlbutton" name="xmlbutton" value="getxml" class="css3button">XML</button>
+                    <button type="button" id="csvbutton" name="csvbutton" value="getcsv" class="css3button">CSV</button>
+                </ul>
+                <div id="cm"></div>
+                <img id="images" src="images/Background.png" width="300" height="300"/>
+                <ul id="je">
+                 </ul>
+            </fieldset>
+            <ul>
+                <li><label id="browse">Browse recently added Songs.</labl></li>
+                <aside id="links">
+                <nav>
+                    <a href="#" id="song1" onclick="parent.location='song1.html'">Raw</a>
+                </nav>
+                <nav>
+                    <a href="#" id="song2" onclick="parent.location='song2.html'">Live</a>
+                </nav>
+                <nav>
+                    <a href="#" id="song3" onclick="parent.location='song3.html'">Good Times</a> 
+                </nav>
+            </aside>
+            </ul>
+            <ul>
+                <li><label id="browse">Browse all songs.</label></li>
+                <nav>
+                    <a href="#" id="allsongs" onclick="parent.location='allsongs.html'">Music Inventory</a>
+                </nav>
+            </ul>
+        </form>
+        </div>
+
+        <script type="text/javascript" src="js/main.js"></script>
+    </body>
+</html>
+<!------>
+>>>>>>> master
