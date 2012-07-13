@@ -1,0 +1,50 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta description="Comic book inventory list.">
+        <meta name="author" content="SitePoint">
+        <meta keywords="comic, books, collection"/>
+        <meta name="robots" content="index, follow"/>
+        <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0"/>
+        <meta name="HandheldFriendly" content="True"/>
+        <meta name="MobileOptimized" content="320"/>
+        <link href="form.css" rel="stylesheet"/>
+        <title>MUSIC CATALOG INVENTORY</title>
+    </head>
+    <body id="content">
+            <h1>Music Catalog Inventory</h1>
+            <aside id="links">
+                <nav><a href="#" id="clear">Clear Stored Songs</a>
+                    <a href="#" id="displayLink">Display Songs</a>
+                    <a href="addItem.html" id="addNew" style="display: none;">Add New Item</a> 
+                </nav>
+            </aside>
+            <form action="#" method="post" id="contactForm">
+                <fieldset id="reg">
+                    <legend id="songInfo">Add Song Info.</legend>
+                    <span>* fields are required.</span>
+                    <ul id="errors"></ul>
+                    		<li id="songInfo"><label for="songInfo">*Select Song Type:</label></li>
+							<h2>Song Info:</h2>
+							<li><label for="sname">Name of Song:</label><input type="text" id="sname" /></li>
+							<li><label for="aname">Album:</label><input type="text" id="aname" /></li>
+							<li><label for="arname">Artist:</label><input type="text" id="arname" /></li>
+							<li><label for="url">Music Down website:</label><input type="url" id="url" placeholder="http://www.rhapsody.com" </label>
+							 <li><label for="favorites">Favorites:</label>
+							 	<ul class="checkbox">
+									<li><input type="radio" value="Yes" id="Yes" name="favorites" /><label for="Yes">Add to Favorites</label></li>
+									<li><input type="radio" value="No" id="No" name="favorites" /><label for="No">Don't Add to Favorites</label></li>
+								</ul>
+							</li>
+							<li><input type="checkbox" id="fav" value="Yes" class="checkbox" /><lable for="fav">Save as Favorite?</label></li>
+							<li><label for="rang">Rating</label><input type="range" min="1" max="10" id="range" /></li>
+							<li><label for="date">Date Added</label><input type="date" id="date" /></li>
+							<li><label for="notes">Notes: </label><textarea id="notes"></textarea></li>	
+						</ul>
+					</fieldset>
+					<input type="submit" id="submit" value="Save Song" /><br />
+				</form>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+    </body>
+</html>
