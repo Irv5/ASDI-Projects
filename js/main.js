@@ -1,35 +1,32 @@
-// Irvin Reaves
-// Project 4
-// Visual Frameworks (VFW) 1204
-// Mobile Development
-// Full Sail University
-// Music Catalog js
-
 //wait until the DOM is ready.
-window.addEventListener("DOMContentLoaded", function(){
+$(document).ready(function (){
+
+	console.log('loaded');
 	
 	//getElementById Function
-	function $(x){
-		var theElement = document.getElementById(x);
-		return theElement;
-	}
+	$.getId = function(x){
+    var theElement = document.getElementById(x);
+    return theElement;
+    };
+    
 	//Create select field element and populate with options.
-	function addSongsInfo(){
-		var formTag		= document.getElementsByTagName( "form" ),
-			selectLi = $( 'songInfo' ),
-			makeSelect = document.createElement( 'select' );
-			makeSelect.setAttribute( "id", "songsInfo" );
-		for( var i = 0, j = songInfo.length; i < j; i++ ){
-			var makeOption = document.createElement( 'option' );
-			var optText = songInfo[i];
-			makeOption.setAttribute( "value", optText );
-			makeOption.innerHTML = optText;
-			makeSelect.appendChild( makeOption );
-		}
-		selectLi.appendChild( makeSelect );
-	}
+	$.makeCats = function(){
+        var formTag = $("form"),//formTag is an array of all the form tags. (because we used getElementsByTagName (plural))
+            selectLi = $("#select"),
+            makeSelect = $('<select></select>');       // $('<select></select>')
+            makeSelect.attr("id", "groups");    // makeSelect.attr("id", "groups");
+        for(var i = 0, j = songInfo.length; i<j; i++){
+            var makeOption = $("option");
+            var optText = songInfo[i];
+            makeOption.attr("value", optText);
+            makeOption.html = optText;  // .html
+            makeSelect.append(makeOption);    // .append
+        }
+        selectLi.append(makeSelect);
+    };
 
 	// Find value of a selected radio button.
+	/*
 	function getSelectedRadio(){
 		var radios = document.forms[0].favorites;
 		for(var i=0; i<radios.length; i++){
@@ -38,16 +35,47 @@ window.addEventListener("DOMContentLoaded", function(){
 			}
 		}
 	}
+*/
+	
+	$("#additem").click(function(){
+    open("addItem.html");
+    return false;
+});	
+	
+	$("#jsonbutton").click(function(){
+    $.ajax({
+        url: "data/data.json",
+        type: "GET",
+        dataType: "json",
+        success: function(result){
+            $('#cm').empty();
+            for(var i=0, j=result.comics.length; i<j; i++){
+                var comi = result.comics[i];
+                $(''+
+                  '<div class="comic">'+
+                    '<h2>' + comi.title +'</h2>'+
+                    '<p>'+comi.volume+'<p>'+
+                    '<p>'+comi.issue+'<p>'+
+                    '<p>'+comi.pubDate+'<p>'+
+                    '<p>'+comi.publisher+'<p>'+
+                    '<p>'+comi.ammount+'<p>'+
+                    '<p>'+comi.favorite+'<p>'+
+                    '<p>'+comi.notes+'<p>'
+                  ).appendTo('#cm');
+            }
+        }
+    });
+});
 
-	function getCheckboxValue(){
+	$.getCheckboxValue = function(){
 		if($('fav').checked){
 			favValue = $('fav').value;
 		}else{
 			favValue = "No"
 		}
-	}  
+	};  
 	
-	function toggleControls( n ){
+	$.toggleControls = function( n ){
 		switch( n ){
 			case "on":
 				$('songForm').style.display    = "none";
@@ -66,10 +94,10 @@ window.addEventListener("DOMContentLoaded", function(){
 			default:
 				return false;	
 		}
-	}
+	};
 
 	
-	function storeData(key){
+	$.storeData = function(key){
 		//If there is no key, this means this is a brand new item and we need a new key.
 		if(!key){
 			var id		= Math.floor(Math.random()*1000001);
@@ -79,8 +107,8 @@ window.addEventListener("DOMContentLoaded", function(){
 			//to the validate function, and then passed here, into the storeData function.
 			id = key;
 		}
-		getSelectedRadio();
-		getCheckboxValue();
+		// getSelectedRadio();
+		// getCheckboxValue();
 		//Gather up all our form field values and store in an object.
 		//Object properties contain array with the form label and input value.
 		var item			= {};
@@ -97,9 +125,9 @@ window.addEventListener("DOMContentLoaded", function(){
 		
 		localStorage.setItem(id, JSON.stringify( item ));
 		alert( "Song Added!" );
-	}
+	};
 	
-	function getData(){
+	$.getData = function(){
 		toggleControls("on");
 		if(localStorage.length === 0){
 			alert("There is no data in Local Storage so default data was added.");
@@ -144,18 +172,18 @@ window.addEventListener("DOMContentLoaded", function(){
 	}
 	
 	//Auto Populate Local Storage
-	function autoFillData(){
+	$.autoFillData = function(){
 		//The actual JSON OBJECT data required for this to work is coming from our jason.js file, which is loadded from our HTML page.
 		//Store the JSON OBJECT into Local Storage.
 		for(var n in json){
 			var id = Math.floor(Math.random()*1000001);
 			localStorage.setItem(id, JSON.stringify(json[n]));
 		}
-	}
+	};
 	
 	//Make Item Links
 	//Create the edit and delete Links for each stored item when displayed.
-	function makeItemLinks(key, linksLi){
+	$.makeItemLinks = function(key, linksLi){
 		//add edit single item link
 		var editLink = document.createElement( 'a' );
 		editLink.href = "#";
@@ -177,12 +205,12 @@ window.addEventListener("DOMContentLoaded", function(){
 		deleteLink.addEventListener("click", deleteItem);
 		deleteLink.innerHTML = deleteText;
 		linksLi.appendChild(deleteLink);
-	}
+	};
 	
-	function editItem(){
+	$.editItem = function(){
 		//Grab the data from our item Local Storage.
 		var value = localStorage.getItem(this.key);
-		var item = JSON.parse(value);
+		var item = JSON.parse(value);0
 		
 		//Show the form
 		toggleControls( "off" );
@@ -217,9 +245,9 @@ window.addEventListener("DOMContentLoaded", function(){
 		//so we can use that value when we save the data we edited.  
 		editSubmit.addEventListener("click", validate);
 		editSubmit.key = this.key;
-	}
+	};
 	
-	function deleteItem(){
+	$.deleteItem = function(){
 		var ask = confirm("Are you sure you want to delete this song?");
 		if(ask){	
 			localStorage.removeItem(this.key)
@@ -228,10 +256,10 @@ window.addEventListener("DOMContentLoaded", function(){
 		}else{
 			alert("Song Info was NOT deleted.")	
 		}
-	}
+	};
 	
 	
-	function clearLocal(){
+	$.clearLocal = function(){
 		if( localStorage.length === 0 ){
 			alert( "No Saved Songs." );
 		}else{
@@ -242,7 +270,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		}
 	}
 	
-	function validate(e){
+	$.validate = function(e){
 		//Define the elements we want to check
 		var getSongInfo = $('songsInfo');
 		var getSname = $('sname');
@@ -303,7 +331,7 @@ window.addEventListener("DOMContentLoaded", function(){
 			storeData(this.key);
 		}
 		
-	}
+	};
 	
 //Variable defaults
 var songInfo = ["--Choose Music Type--", "Party", "Relaxed", "Fun", "Other"],
@@ -311,16 +339,22 @@ var songInfo = ["--Choose Music Type--", "Party", "Relaxed", "Fun", "Other"],
 	favValue = "No",
 	errMsg = $('errors');
 	;
-addSongsInfo();
+$.makeCats();
+
 
 //Set Link & Submit Click Events
 	
-	var displayLink = $( 'displayData' );
-	displayLink.addEventListener("click", getData);
-	var clearLink   = $( 'clear' );
-	clearLink.addEventListener( "click", clearLocal); 
-	var save        = $( 'submit' );
-	save.addEventListener( "click", validate);
-	
+	var displayLink = $('#displayData');
+    $("#displayLink").click(function(){
+        $('#displayLink');
+        });
+	var clearLink = $("#clear");
+    $("#clearLink").click(function(){
+        $('#clearLink');
+        });
+	var save = $("#submita");
+    $("#submita").click(function(){
+        $('#submita');
+        });
 
-});		
+});
