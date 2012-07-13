@@ -1,0 +1,19 @@
+{
+   
+    
+    {
+                "Select Song Type": "Party",
+                "Name of Song": "Raw",
+                "Album": "Raw",
+                "Artist": "Kane",
+                "Music Down website": "http://www.apple.com",
+                "Favorite": "Yes",
+                "Save as Favorite": "Yes",
+                "Rating": "5",
+                "Date": "2012-4-21",
+                "Notes": "VFW"
+    },
+    
+    var serializedItem = JSON.stringify(item);
+console.log(serializedItem);
+}
